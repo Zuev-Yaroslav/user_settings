@@ -14,15 +14,11 @@ class ProfileService
 {
     public function index()
     {
-        return ProfileResource::collection(Profile::all())->resolve();
+        return Profile::all();
     }
     public function store(array $data)
     {
         return Profile::create($data);
-    }
-    public function show(Profile $profile)
-    {
-        return ProfileResource::make($profile)->resolve();
     }
     public function update($profile, array $data)
     {

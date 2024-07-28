@@ -20,7 +20,8 @@ class ProfileController extends Controller
      */
     public function index(ProfileService $service)
     {
-        return $service->index();
+        $profiles = $service->index();
+        return ProfileResource::collection($profiles)->resolve();
     }
 
     /**
@@ -40,7 +41,7 @@ class ProfileController extends Controller
      */
     public function show(Profile $profile, ProfileService $service)
     {
-        return $service->show($profile);
+        return ProfileResource::make($profile)->resolve();
     }
     public function sendVerificationEdit(SendCodeRequest $request, Profile $profile, ProfileService $service)
     {

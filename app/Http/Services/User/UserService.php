@@ -11,16 +11,12 @@ class UserService
 {
     public function index()
     {
-        return UserResource::collection(User::all())->resolve();
+        return User::all();
     }
     public function store(array $data)
     {
         $data['password'] = Hash::make($data['password']);
         return User::create($data);
-    }
-    public function show(User $user)
-    {
-        return UserResource::make($user)->resolve();
     }
     public function update($user, array $data)
     {
@@ -33,6 +29,5 @@ class UserService
     public function destroy(User $user)
     {
         $user->delete();
-        return response([], Response::HTTP_NO_CONTENT);
     }
 }

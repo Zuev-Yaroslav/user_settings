@@ -19,7 +19,8 @@ class UserController extends Controller
      */
     public function index(UserService $service)
     {
-        return $service->index();
+        $users = $service->index();
+        return UserResource::collection($users)->resolve();
     }
 
     /**
@@ -39,7 +40,7 @@ class UserController extends Controller
      */
     public function show(User $user, UserService $service)
     {
-        return $service->show($user);
+        return UserResource::make($user);
     }
 
     /**
@@ -60,6 +61,8 @@ class UserController extends Controller
      */
     public function destroy(User $user, UserService $service)
     {
-        return $service->destroy($user);
+        $service->destroy($user);
+
+        return response([], Response::HTTP_NO_CONTENT);
     }
 }
