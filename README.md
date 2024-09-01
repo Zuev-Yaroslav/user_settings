@@ -25,4 +25,6 @@ npm install
 php artisan serv
 vite
 ````
-- Все коды отправляет в логи verification-codes
+- Все коды отправляются в логи verification-codes
+
+
