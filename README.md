@@ -13,15 +13,6 @@
 - Создать пустую папку для клонирования проекта
 - Прописать в терминале в той же папке `git clone https://github.com/Zuev-Yaroslav/lead_service.git` (убедитесь, что на вашем ПК установлен GIT)
 - Создать дубликат файла .env.example и переименовать на .env
-- В .env можете поменять в DB_CONNECTION название субд (sqlite, mysql).
-- Укажите пароль первого созданного пользователя FIRST_USER_PASSWORD. Если хотите зарегистрировать пользователя на клиенте, то можете закомментировать в `DatabaseSeeder.php`
-```` php
-        User::firstOrCreate(['email' => 'admin@admin.com'], [
-            'name' => 'Admin',
-            'password' => Hash::make(config('dev.first_user_password')),
-        ]);
-````
-- В качестве SMTP сервиса я использовал ethereal.email. Чтобы настроить в проекте, нужно создать аккаунт на ethereal.email. в MAIL_USERNAME указать логин, в MAIL_PASSWORD - пароль.
 - Прописать в терминале:
 ```` bash
 composer update
